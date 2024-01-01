@@ -4,8 +4,10 @@ import * as z from "zod";
 
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import Link from "next/link";
 
 import { LoginSchema } from "@/schemas";
+import { Input } from "@/components/ui/input";
 import {
   Form,
   FormControl,
@@ -14,11 +16,10 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-
-import { CardWrapper } from "./card-wrapper";
-import { Input } from "../ui/input";
-import { Button } from "../ui/button";
-import Link from "next/link";
+import { CardWrapper } from "@/components/auth/card-wrapper";
+import { Button } from "@/components/ui/button";
+import { FormError } from "@/components/form-error";
+import { FormSuccess } from "@/components/form-success";
 
 export const LoginForm = () => {
   const form = useForm<z.infer<typeof LoginSchema>>({
@@ -80,6 +81,8 @@ export const LoginForm = () => {
               )}
             />
           </div>
+          <FormError />
+          <FormSuccess />
           <Button type="submit" className="w-full">
             Login
           </Button>
