@@ -21,7 +21,7 @@ import { CardWrapper } from "@/components/auth/card-wrapper";
 import { Button } from "@/components/ui/button";
 import { FormError } from "@/components/form-error";
 import { FormSuccess } from "@/components/form-success";
-import { login } from "@/actions/login";
+import { register } from "@/actions/register";
 
 export const RegisterForm = () => {
   const [showTwoFactor, setShowTwoFactor] = useState(false);
@@ -42,7 +42,7 @@ export const RegisterForm = () => {
     setSuccess("");
 
     startTransition(() => {
-      login(values)
+      register(values)
         .then((data) => {
           if (data?.error) {
             form.reset();
