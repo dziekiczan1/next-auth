@@ -55,10 +55,10 @@ export const LoginForm = () => {
             setError(data.error);
           }
 
-          // if (data?.success) {
-          //   form.reset();
-          //   setSuccess(data.success);
-          // }
+          if (data?.success) {
+            form.reset();
+            setSuccess(data.success);
+          }
         })
         .catch(() => setError("Something went wrong"));
     });
