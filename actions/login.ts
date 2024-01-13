@@ -56,7 +56,7 @@ export const login = async (
       }
 
       if (twoFactorToken.token !== code) {
-        return { error: "Invalid code!" };
+        return { reenter: "Please re-enter your code" };
       }
 
       const hasExpired = new Date(twoFactorToken.expires) < new Date();

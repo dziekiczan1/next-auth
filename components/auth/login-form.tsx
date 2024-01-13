@@ -52,6 +52,7 @@ export const LoginForm = () => {
     startTransition(() => {
       login(values, callbackUrl)
         .then((data) => {
+          console.log(data);
           if (data?.error) {
             form.reset();
             setError(data.error);
@@ -60,6 +61,10 @@ export const LoginForm = () => {
           if (data?.success) {
             form.reset();
             setSuccess(data.success);
+          }
+
+          if (data?.reenter) {
+            setError(data.reenter);
           }
 
           if (data?.twoFactor) {
